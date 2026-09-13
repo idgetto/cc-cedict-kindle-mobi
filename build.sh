@@ -3,7 +3,7 @@
 # Full pipeline: CC-CEDICT source -> tab file -> OPF/HTML -> .mobi dictionary
 #
 # Usage:
-#   ./build_pipeline.sh [CEDICT_SOURCE]
+#   ./build.sh [CEDICT_SOURCE]
 #
 # CEDICT_SOURCE defaults to cedict_1_0_ts_utf-8_mdbg.txt (the filename
 # cedict_to_tab.py already expects).
