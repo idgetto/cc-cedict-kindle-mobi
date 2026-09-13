@@ -36,8 +36,21 @@ echo "[2/3] Converting $TAB_FILE to OPF/HTML..."
 python3 tab_to_opf.py -utf "$TAB_FILE"
 
 echo "[3/3] Building .mobi with kindlegen..."
+# kindlegen's exit codes are non-standard: 0 = success, 1 = success with
+# warnings (this is normal for dictionaries; see W26001), 2 = fatal error.
+# Temporarily disable `set -e` so a warnings-only exit doesn't abort the script.
+set +e
 kindlegen "$OUTPUT_DIR/dictionary.opf"
+kindlegen_status=$?
+set -e
+
+if [ "$kindlegen_status" -ge 2 ]; then
+    echo "Error: kindlegen failed (exit code $kindlegen_status)." >&2
+    exit "$kindlegen_status"
+fi
 
 cp "$OUTPUT_DIR/dictionary.mobi" .
 
+echo ""
+echo ""
 echo "Done: dictionary.mobi"
