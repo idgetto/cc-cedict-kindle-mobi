@@ -40,36 +40,15 @@ Once you have the `kindlegen` binary, make sure it's executable and on your `PAT
 ./build.sh
 ```
 
-This runs the full pipeline:
-
-1. `cedict_to_tab.py` converts the CC-CEDICT source into a tab file.
-2. `tab_to_opf.py` converts the tab file into OPF/HTML.
-3. `kindlegen` compiles those into `output/dictionary.mobi`, which is then copied to the repo root as `dictionary.mobi`.
-
-If your CC-CEDICT source file has a different name or location, pass it as an argument:
-
-```bash
-./build.sh path/to/cedict-source.txt
-```
-
-## Adding the dictionary to your Kindle
-
-1. Connect your Kindle to your computer via USB. It should show up as a removable drive.
-2. Drag `dictionary.mobi` into the Kindle's `documents/dictionaries` folder (this is a regular file transfer, distinct from Amazon's "Download & Transfer via USB" feature for purchased books, and still works for sideloading your own files).
-3. Safely eject the Kindle and disconnect it.
-4. On the Kindle, go to **Settings → Device Options → Language & Dictionaries → Dictionaries**, find the entry for Chinese, and set this dictionary as the default.
-5. Open a Chinese-language book and long-press a word to confirm the lookup works.
-
-## Author
+# Author
 
 [Geza Kovacs](https://github.com/gkovacs)
 
-Python pipeline rewrite by [idgetto](https://github.com/idgetto/cc-cedict-kindle-mobi)
-
-## License
+# License
 
 MIT
 
-## Related
+# Related
 
-For a version with zhuyin and jyutping (Cantonese), see https://github.com/gkovacs/cantodict-kindle-mobi
+For version with zhuyin and jyutping (cantonese), see https://github.com/gkovacs/cantodict-kindle-mobi
+
